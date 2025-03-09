@@ -1,0 +1,11 @@
+<mat-card #container class="note-card-container" appearance="outlined">
+  <a [routerLink]="link" class="link">
+    <mat-card-content>
+      <div class="note-card-content">
+        <h1 class="note-card-title">{{ title }}</h1>
+          <p>{{ content }}</p>
+      </div>
+    </mat-card-content>
+  </a>
+  <div class="remove-button" (click)="onRemoveClick()">X</div>
+</mat-card>

@@ -1,0 +1,28 @@
+.notes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.add-button {
+  padding: 1.5rem;
+}
+
+.note-options-container {
+  width: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.note-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no-notes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

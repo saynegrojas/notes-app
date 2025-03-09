@@ -1,0 +1,49 @@
+
+<mat-card class="note-card-container">
+    <mat-card-content>
+      <div class="note-card-content">
+        <h1 class="note-card-title">
+          {{ new ? 'New Note' : 'Edit' }}
+        </h1>
+
+        <!-- Form -->
+        <div class="form-container">
+          <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)">
+            <!-- Title -->
+            <div class="field-container">
+              <mat-form-field class="form">
+                <mat-label>Title</mat-label>
+                <input class="field" required matInput name="title" [ngModel]="note.title" />
+              </mat-form-field>
+            </div>
+            <!-- Content -->
+            <div class="field-container">
+              <mat-form-field class="form">
+                <mat-label>Content</mat-label>
+                <textarea class="field" required matInput name="content" [ngModel]="note.content"></textarea>
+              </mat-form-field>
+            </div>
+            <div class="action-buttons">
+              <button
+                class="add-button"
+                mat-flat-button
+                type="submit"
+                [disabled]="!noteForm.valid"
+              >
+              {{ new ? 'Add' : 'Update' }}
+              </button>
+              <button
+                class="cancel-button"
+                mat-flat-button
+                type="button"
+                (click)="cancel()"
+              >
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </mat-card-content>
+</mat-card>

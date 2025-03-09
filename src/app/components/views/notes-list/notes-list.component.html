@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="note-options-container">
+    <div class="note-options">
+      <button class="add-button" mat-flat-button routerLink="form">
+        + New Note
+      </button>
+      <app-search-bar (search)="onSearch($event)"></app-search-bar>
+    </div>
+  </div>
+  <div class="notes-list">
+    <div class="no-notes" *ngIf="filteredNotes.length === 0">
+      <div>No notes available. Please add a new note!</div>
+    </div>
+    <app-note-card
+      *ngFor="let note of filteredNotes"
+      [link]="note.id"
+      [@itemAnim]
+      (remove)="removeNote(note.id)"
+      [title]="note.title"
+      [content]="note.content"
+    ></app-note-card>
+  </div>
+</div>
