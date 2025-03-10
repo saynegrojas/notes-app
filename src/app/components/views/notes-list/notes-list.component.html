@@ -8,9 +8,16 @@
     </div>
   </div>
   <div class="notes-list">
-    <div class="no-notes" *ngIf="filteredNotes.length === 0">
-      <div>No notes available. Please add a new note!</div>
+    <div class="no-notes">
+      <ng-container *ngIf="filteredNotes.length === 0; else notesCount">
+        <div >No notes to show</div>
+      </ng-container>
+      
+      <ng-template #notesCount>
+        <div class="note-count">Total Notes: {{ filteredNotes.length }}</div>
+      </ng-template>
     </div>
+    
     <app-note-card
       *ngFor="let note of filteredNotes"
       [link]="note.id"
